@@ -1,10 +1,11 @@
+alert('Welcome to Rock, Paper and Scissors game! Press OK to START!');
 const selection = ['Rock', 'Paper', 'Scissors'];
 let playerScore = 0;
 let computerScore = 0;
 let drawScore = 0;
 
 function playerSelection() {
-  let choice = prompt('Insert your choice:');
+  let choice = prompt('Insert your choice: Rock(1), Paper(2) or Scissors(3)?');
   switch (choice) {
     case '1':
       return 'rock';
