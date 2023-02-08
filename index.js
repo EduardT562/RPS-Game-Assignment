@@ -45,15 +45,21 @@ restartBtn.addEventListener('click', () => {
   computerResult.textContent = `Computer: ${computer}`;
   gameRound.textContent = `Round: ${roundResult}`;
   activateButtons();
-  displayWinner();
+  checkWinner();
 });
 
 function checkWinner() {
-  if (playerScore === 5 || computerScore === 5) {
-    displayWinner();
+  if (playerScore === 5) {
+    gameResult.textContent = `Game result: You've reached 5 points! You Win! :D`;
     disableButtons();
+  } else if (computerScore === 5) {
+    gameResult.textContent = `Game result: Computer reached 5 points! Computer Won... :'(`;
+    disableButtons();
+  } else if (playerScore < 5 && computerScore < 5) {
+    gameResult.textContent = '';
   }
 }
+
 function activateButtons() {
   for (let i = 0; i < choiceBtns.length; i++) {
     choiceBtns[i].disabled = false;
@@ -63,16 +69,6 @@ function activateButtons() {
 function disableButtons() {
   for (let i = 0; i < choiceBtns.length; i++) {
     choiceBtns[i].disabled = true;
-  }
-}
-
-function displayWinner() {
-  if (playerScore === 5) {
-    gameResult.textContent = `Game result: You've reached 5 points! You Win! :D`;
-  } else if (computerScore === 5) {
-    gameResult.textContent = `Game result: Computer reached 5 points! Computer Won... :'(`;
-  } else if (playerScore < 5 && computerScore < 5) {
-    gameResult.textContent = '';
   }
 }
 
