@@ -217,13 +217,14 @@ body {
   }
   #gameContainer {
     padding: 1.5rem 1.5rem;
-    height: 90%;
+    height: 80%;
+    width: 60%;
   }
 
   .btnContainer {
     margin-top: 1rem;
     padding: 0.5rem;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .btnContainer > .choiceBtn {
