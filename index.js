@@ -3,26 +3,69 @@ const selection = ['Rock', 'Paper', 'Scissors'];
 let playerScore = 0;
 let computerScore = 0;
 let drawScore = 0;
+const playerResult = document.querySelector('#playerResult');
+const playerComputer = document.querySelector('#computerResult');
+const gameRound = document.querySelector('#gameRound');
+const gameScore = document.querySelector('#gameScore');
+const gameResult = document.querySelector('#gameResult');
+const choiceBtns = document.querySelectorAll('.choiceBtn');
 
-function playerSelection() {
-  let choice = prompt('Insert your choice: Rock(1), Paper(2) or Scissors(3)?');
+let player;
+let computer;
+let roundNr = 1;
+let roundResult;
+
+choiceBtns.forEach((button) =>
+  button.addEventListener('click', () => {
+    if (playerScore != 5 && computerScore != 5) {
+      player = button.textContent;
+      playerSelection(player);
+      computer = computerSelection();
+      roundResult = playRound(player, computer, roundNr);
+      gameScore.textContent = `Game Score: Player: ${playerScore}, Computer: ${computerScore}, Draws: ${drawScore}`;
+      playerResult.textContent = `Player: ${player}`;
+      computerResult.textContent = `Computer: ${computer}`;
+      gameRound.textContent = `Round: ${roundResult}`;
+    }
+    checkWinner();
+  })
+);
+
+function checkWinner() {
+  if (playerScore == 5 || computerScore == 5) {
+    displayWinner();
+    disableButtons();
+  }
+}
+function disableButtons() {
+  for (let i = 0; i < choiceBtns.length; i++) {
+    choiceBtns[i].disabled = true;
+  }
+}
+
+function displayWinner() {
+  if (playerScore === 5) {
+    gameResult.textContent = `Game result: You've reached 5 points! :D Congrats!`;
+  } else if (computerScore === 5) {
+    gameResult.textContent = `Game result: Computer reached 5 points! :'( Better luck next time...`;
+  }
+}
+
+function playerSelection(choice) {
   switch (choice) {
     case '1':
-      return 'rock';
+      return selection[0];
     case '2':
-      return 'paper';
+      return selection[1];
     case '3':
-      return 'scissors';
+      return selection[2];
     default:
       if (
-        choice.toLowerCase() === 'rock' ||
-        choice.toLowerCase() === 'paper' ||
-        choice.toLowerCase() === 'scissors'
+        choice === selection[0] ||
+        choice === selection[1] ||
+        choice === selection[2]
       ) {
         return choice;
-      } else {
-        alert('You have to pick: Rock(1), Paper(2) or Scissors(3)!');
-        return 'invalid';
       }
   }
 }
@@ -33,76 +76,64 @@ function computerSelection() {
 }
 
 function playRound(player, computer, round) {
-  alert(`Computer picked: ${computer}`);
-  if (player.toLowerCase() === computer.toLowerCase()) {
-    console.log(`You've chosen ${player} this round!`);
-    console.log(`Computer picked ${computer} this round!`);
-    console.log(`This Round ${round} is a draw! :|\n -------`);
-    alert(`The Round ${round} is a draw! :|`);
-    drawScore++;
+  if (player === computer) {
+    round = `The Round ${roundNr} is a draw! :|`;
+    // console.log(`You've chosen ${player} this round!`);
+    // console.log(`Computer picked ${computer} this round!`);
+    // console.log(`This Round ${roundNr} is a draw! :|\n -------`);
+    // alert(`The Round ${roundResult} is a draw! :|`);
+
+    return roundNr++, drawScore++, round;
   } else if (
-    (player.toLowerCase() === 'rock' && computer.toLowerCase() === 'paper') ||
-    (player.toLowerCase() === 'paper' &&
-      computer.toLowerCase() === 'scissors') ||
-    (player.toLowerCase() === 'scissors' && computer.toLowerCase() == 'rock')
+    (player === selection[0] && computer === selection[1]) ||
+    (player === selection[1] && computer === selection[2]) ||
+    (player === selection[2] && computer == selection[0])
   ) {
-    console.log(`You've chosen ${player} this round!`);
-    console.log(`Computer picked ${computer} this round!`);
-    console.log(`You've lost this Round ${round}! :(\n -------`);
+    round = `You've lost this Round ${roundNr}:(`;
+    // console.log(`You've chosen ${player} this round!`);
+    // console.log(`Computer picked ${computer} this round!`);
+    // console.log(`You've lost this Round ${roundResult}! :(\n -------`);
+    // alert(`You've lost this Round ${roundResult}! :(`);
 
-    alert(`You've lost this Round ${round}! :(`);
-    computerScore++;
+    return roundNr++, computerScore++, round;
   } else {
-    console.log(`You've chosen ${player} this round!`);
-    console.log(`Computer picked ${computer} this round!`);
-    console.log(`You've won this Round ${round}! :)\n -------`);
+    round = `You've won this Round ${roundNr}:)`;
+    // console.log(`You've chosen ${player} this round!`);
+    // console.log(`Computer picked ${computer} this round!`);
+    // console.log(`You've won this Round ${roundResult}! :)\n -------`);
+    // alert(`You've won this Round ${roundResult}! :)`);
 
-    alert(`You've won this Round ${round}! :)`);
-    playerScore++;
+    return roundNr++, playerScore++, round;
   }
 }
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    let choice = playerSelection();
-    let computer = computerSelection();
+// for (let i = 0; i < 5; i++) {
+//   let choice = playerSelection(player);
+//   let computer = computerSelection();
 
-    while (choice === 'invalid') {
-      choice = playerSelection();
-    }
-    playRound(choice, computer, i + 1);
-  }
+// while (choice === 'invalid') {
+//   choice = playerSelection();
+// }
+// playRound(choice, computer, round + 1 );
+// }
 
-  console.log(
-    ' -------' +
-      ' \n GAME OVER! Your final game score is ' +
-      playerScore +
-      ' wins ' +
-      computerScore +
-      ' loses and ' +
-      drawScore +
-      ' draws.\n -------'
-  );
+// console.log(
+//   ' -------' +
+//     ' \n GAME OVER! Your final game score is ' +
+//     playerScore +
+//     ' wins ' +
+//     computerScore +
+//     ' loses and ' +
+//     drawScore +
+//     ' draws.\n -------'
+// );
 
-  alert(
-    "GAME OVER! Your game's final score is " +
-      playerScore +
-      ' wins ' +
-      computerScore +
-      ' loses and ' +
-      drawScore +
-      ' draws.'
-  );
-
-  if (playerScore === computerScore) {
-    console.log('This Game is a Draw! :|');
-    alert('This Game is a Draw! :|');
-  } else if (computerScore > playerScore) {
-    console.log("Computer won this Game! :'( Better luck next time...");
-    alert("Computer won this Game! :'( Better luck next time...");
-  } else {
-    console.log("You've won this Game! :D Congrats!");
-    alert("You've won this Game! :D Congrats!");
-  }
-}
-game();
+// alert(
+//   "GAME OVER! Your game's final score is " +
+//     playerScore +
+//     ' wins ' +
+//     computerScore +
+//     ' loses and ' +
+//     drawScore +
+//     ' draws.'
+// );
