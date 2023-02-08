@@ -1,4 +1,4 @@
-alert('Welcome to Rock, Paper and Scissors game! Press OK to START!');
+// alert('Welcome to Rock, Paper and Scissors game! Press OK to START!');
 const selection = ['Rock', 'Paper', 'Scissors'];
 let playerScore = 0;
 let computerScore = 0;
@@ -14,6 +14,15 @@ let player;
 let computer;
 let roundNr = 1;
 let roundResult;
+
+playerResult.textContent = 'Player: Preparing...';
+playerResult.style.height = '15%';
+playerResult.style.marginTop = '2rem';
+playerComputer.textContent = 'Computer: Warming up...';
+playerComputer.style.height = '15%';
+playerComputer.style.marginTop = '2rem';
+gameRound.textContent = 'Choose your weapon!';
+gameRound.style.height = '15%';
 
 choiceBtns.forEach((button) =>
   button.addEventListener('click', () => {

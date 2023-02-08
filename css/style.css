@@ -1,0 +1,317 @@
+:root {
+  --main-color: #202329;
+  --pane-padding: 5px 42px;
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  font-size: 0.5rem;
+  /* font-size: calc(0.90375rem + 0.045vw); */
+  background: url(./assets/rock-paper-scissors-today-tease-160317.jpg) no-repeat
+    center center/ cover;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 -10px #5d6977;
+  }
+  40% {
+    box-shadow: 0 0 20px #5d6977;
+  }
+  60% {
+    box-shadow: 0 0 20px #5d6977;
+  }
+  100% {
+    box-shadow: 0 0 -10px #5d6977;
+  }
+}
+
+.gameText {
+  margin: 0.2rem;
+  padding: 0.3rem;
+  padding-top: 1rem;
+  border-bottom: 3px solid #007bff;
+  border-radius: 2px;
+}
+
+#gameContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 70%;
+  padding: 5vw 5vw;
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: rgb(241, 241, 241);
+  animation: fadeIn 3s;
+  box-shadow: 5px 5px 50px #a0b3c9, -5px -5px 50px #a0b3c9;
+  animation: glowing 5000ms infinite;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding: 0.2rem;
+}
+
+.btnContainer > .choiceBtn {
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btnContainer > .restartBtn {
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: black;
+  background-color: #a0b3c9;
+  border-color: #a0b3c9;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btnContainer > .choiceBtn:hover {
+  cursor: pointer;
+  color: black;
+  background-color: #a0b3c9;
+  border-color: #a0b3c9;
+  box-shadow: 0.5px 0.5px 5px #034e9e, -0.5px -0.5px 5px #034e9e;
+}
+
+.btnContainer > .restartBtn:hover {
+  cursor: pointer;
+  color: black;
+  background-color: #a0b3c9;
+  border-color: #a0b3c9;
+  box-shadow: 0.5px 0.5px 5px #034e9e, -0.5px -0.5px 5px #034e9e;
+}
+
+@media (min-width: 320px) {
+  body {
+    font-size: x-small;
+  }
+
+  .gameText {
+    padding-top: 0.5rem;
+  }
+
+  #gameContainer {
+    padding: 0.5rem 0.5rem;
+    height: 90%;
+  }
+
+  .btnContainer {
+    margin-top: 0.5rem;
+    padding: 0.1rem;
+  }
+
+  .btnContainer > .choiceBtn {
+    font-size: 1.5rem;
+  }
+  .btnContainer > .restartBtn {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 480px) {
+  body {
+    font-size: small;
+  }
+  #gameContainer {
+    padding: 1rem 1rem;
+    height: 95%;
+  }
+
+  .btnContainer {
+    margin-top: 0.5rem;
+    padding: 0.1rem;
+  }
+
+  .btnContainer > .choiceBtn {
+    font-size: 1.5rem;
+  }
+  .btnContainer > .restartBtn {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: medium;
+  }
+  #gameContainer {
+    padding: 1.5rem 1.5rem;
+    height: 90%;
+  }
+
+  .btnContainer {
+    margin-top: 1rem;
+    padding: 0.5rem;
+  }
+
+  .btnContainer > .choiceBtn {
+    font-size: 1.8rem;
+  }
+  .btnContainer > .restartBtn {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 980px) {
+  body {
+    font-size: medium;
+  }
+  #gameContainer {
+    padding: 1.5rem 1.5rem;
+    height: 90%;
+  }
+
+  .btnContainer {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    gap: 2rem;
+  }
+
+  .btnContainer > .choiceBtn {
+    font-size: 2rem;
+  }
+  .btnContainer > .restartBtn {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: medium;
+  }
+  #gameContainer {
+    padding: 1.5rem 1.5rem;
+    height: 90%;
+  }
+
+  .btnContainer {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    gap: 2rem;
+  }
+
+  .btnContainer > .choiceBtn {
+    font-size: 2rem;
+  }
+  .btnContainer > .restartBtn {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: medium;
+  }
+  #gameContainer {
+    padding: 1.5rem 1.5rem;
+    width: 50%;
+    height: 90%;
+  }
+
+  .btnContainer {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    gap: 2rem;
+  }
+
+  .btnContainer > .choiceBtn {
+    font-size: 2.5rem;
+  }
+  .btnContainer > .restartBtn {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1590px) {
+  body {
+    font-size: medium;
+  }
+  #gameContainer {
+    padding: 1.5rem 1.5rem;
+    width: 50%;
+    height: 80%;
+  }
+
+  .btnContainer {
+    margin-top: 1rem;
+    padding: 0.2rem;
+    width: 70%;
+    gap: 1rem;
+  }
+
+  .btnContainer > .choiceBtn {
+    font-size: 2.5rem;
+  }
+  .btnContainer > .restartBtn {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1674px) {
+  body {
+    font-size: large;
+  }
+
+  .gameText {
+    padding-top: 1rem;
+    border-bottom: 3px solid #007bff;
+    border-radius: 2px;
+  }
+
+  #gameContainer {
+    padding: 1.5rem 1.5rem;
+    width: 50%;
+    height: 68%;
+  }
+
+  .btnContainer {
+    margin-top: 1rem;
+    padding: 0.2rem;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .btnContainer > .choiceBtn {
+    font-size: 2.5rem;
+    height: 45%;
+    width: 24%;
+  }
+  .btnContainer > .restartBtn {
+    font-size: 2rem;
+  }
+}
