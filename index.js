@@ -31,12 +31,35 @@ choiceBtns.forEach((button) =>
   })
 );
 
+const restartBtn = document.querySelector('.restartBtn');
+restartBtn.addEventListener('click', () => {
+  playerScore = 0;
+  computerScore = 0;
+  drawScore = 0;
+  roundNr = 1;
+  player = 'Choose your weapon!';
+  computer = 'Warming up...';
+  roundResult = 'Starting...';
+  gameScore.textContent = `Game Score: Player: ${playerScore}, Computer: ${computerScore}, Draws: ${drawScore}`;
+  playerResult.textContent = `Player: ${player}`;
+  computerResult.textContent = `Computer: ${computer}`;
+  gameRound.textContent = `Round: ${roundResult}`;
+  activateButtons();
+  displayWinner();
+});
+
 function checkWinner() {
-  if (playerScore == 5 || computerScore == 5) {
+  if (playerScore === 5 || computerScore === 5) {
     displayWinner();
     disableButtons();
   }
 }
+function activateButtons() {
+  for (let i = 0; i < choiceBtns.length; i++) {
+    choiceBtns[i].disabled = false;
+  }
+}
+
 function disableButtons() {
   for (let i = 0; i < choiceBtns.length; i++) {
     choiceBtns[i].disabled = true;
@@ -45,9 +68,11 @@ function disableButtons() {
 
 function displayWinner() {
   if (playerScore === 5) {
-    gameResult.textContent = `Game result: You've reached 5 points! :D Congrats!`;
+    gameResult.textContent = `Game result: You've reached 5 points! You Win! :D`;
   } else if (computerScore === 5) {
-    gameResult.textContent = `Game result: Computer reached 5 points! :'( Better luck next time...`;
+    gameResult.textContent = `Game result: Computer reached 5 points! Computer Won... :'(`;
+  } else if (playerScore < 5 && computerScore < 5) {
+    gameResult.textContent = '';
   }
 }
 
@@ -89,7 +114,7 @@ function playRound(player, computer, round) {
     (player === selection[1] && computer === selection[2]) ||
     (player === selection[2] && computer == selection[0])
   ) {
-    round = `You've lost this Round ${roundNr}:(`;
+    round = `You've lost this Round ${roundNr} :(`;
     // console.log(`You've chosen ${player} this round!`);
     // console.log(`Computer picked ${computer} this round!`);
     // console.log(`You've lost this Round ${roundResult}! :(\n -------`);
@@ -97,7 +122,7 @@ function playRound(player, computer, round) {
 
     return roundNr++, computerScore++, round;
   } else {
-    round = `You've won this Round ${roundNr}:)`;
+    round = `You've won this Round ${roundNr} :)`;
     // console.log(`You've chosen ${player} this round!`);
     // console.log(`Computer picked ${computer} this round!`);
     // console.log(`You've won this Round ${roundResult}! :)\n -------`);
