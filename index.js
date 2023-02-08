@@ -99,11 +99,6 @@ function computerSelection() {
 function playRound(player, computer, round) {
   if (player === computer) {
     round = `The Round ${roundNr} is a draw! :|`;
-    // console.log(`You've chosen ${player} this round!`);
-    // console.log(`Computer picked ${computer} this round!`);
-    // console.log(`This Round ${roundNr} is a draw! :|\n -------`);
-    // alert(`The Round ${roundResult} is a draw! :|`);
-
     return roundNr++, drawScore++, round;
   } else if (
     (player === selection[0] && computer === selection[1]) ||
@@ -111,50 +106,9 @@ function playRound(player, computer, round) {
     (player === selection[2] && computer == selection[0])
   ) {
     round = `You've lost this Round ${roundNr} :(`;
-    // console.log(`You've chosen ${player} this round!`);
-    // console.log(`Computer picked ${computer} this round!`);
-    // console.log(`You've lost this Round ${roundResult}! :(\n -------`);
-    // alert(`You've lost this Round ${roundResult}! :(`);
-
     return roundNr++, computerScore++, round;
   } else {
     round = `You've won this Round ${roundNr} :)`;
-    // console.log(`You've chosen ${player} this round!`);
-    // console.log(`Computer picked ${computer} this round!`);
-    // console.log(`You've won this Round ${roundResult}! :)\n -------`);
-    // alert(`You've won this Round ${roundResult}! :)`);
-
     return roundNr++, playerScore++, round;
   }
 }
-
-// for (let i = 0; i < 5; i++) {
-//   let choice = playerSelection(player);
-//   let computer = computerSelection();
-
-// while (choice === 'invalid') {
-//   choice = playerSelection();
-// }
-// playRound(choice, computer, round + 1 );
-// }
-
-// console.log(
-//   ' -------' +
-//     ' \n GAME OVER! Your final game score is ' +
-//     playerScore +
-//     ' wins ' +
-//     computerScore +
-//     ' loses and ' +
-//     drawScore +
-//     ' draws.\n -------'
-// );
-
-// alert(
-//   "GAME OVER! Your game's final score is " +
-//     playerScore +
-//     ' wins ' +
-//     computerScore +
-//     ' loses and ' +
-//     drawScore +
-//     ' draws.'
-// );
