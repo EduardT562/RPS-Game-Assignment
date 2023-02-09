@@ -16,7 +16,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding-bottom: 100vw;
   text-align: center;
   font-size: 0.5rem;
   /* font-size: calc(0.90375rem + 0.045vw); */
@@ -126,11 +126,10 @@ body {
   #gameContainer {
     margin: 1.5rem 1.5rem;
     padding: 0.5rem 0.5rem;
-    height: 70%;
   }
 
   .btnContainer {
-    width: 70%;
+    width: 70vw;
     margin-top: 0.5rem;
     padding: 0.1rem;
   }
@@ -150,8 +149,7 @@ body {
   #gameContainer {
     margin: 2rem 2rem;
     padding: 1rem 1rem;
-    height: 80%;
-    width: 70%;
+    width: 70vw;
   }
 
   .btnContainer {
@@ -174,12 +172,11 @@ body {
   }
   #gameContainer {
     padding: 1.5rem 1.5rem;
-    height: 90%;
-    width: 60%;
+    width: 60vw;
   }
 
   .btnContainer {
-    width: 60%;
+    width: 60vw;
     margin-top: 1rem;
     padding: 0.5rem;
   }
@@ -198,12 +195,11 @@ body {
   }
   #gameContainer {
     padding: 1.5rem 1.5rem;
-    height: 90%;
-    width: 60%;
+    width: 60vw;
   }
 
   .btnContainer {
-    width: 60%;
+    width: 60vw;
     margin-top: 1rem;
     padding: 0.5rem;
     gap: 2rem;
@@ -224,12 +220,11 @@ body {
 
   #gameContainer {
     padding: 1.5rem 1.5rem;
-    height: 80%;
-    width: 50%;
+    width: 50vw;
   }
 
   .btnContainer {
-    width: 60%;
+    width: 60vw;
     margin-top: 1rem;
     padding: 0.5rem;
     gap: 1rem;
@@ -249,8 +244,7 @@ body {
   }
   #gameContainer {
     padding: 1.5rem 1.5rem;
-    width: 50%;
-    height: 90%;
+    width: 50vw;
   }
 
   .btnContainer {
@@ -274,14 +268,13 @@ body {
 
   #gameContainer {
     padding: 1.5rem 1.5rem;
-    width: 40%;
-    height: 80%;
+    width: 40vw;
   }
 
   .btnContainer {
     margin-top: 1rem;
     padding: 0.2rem;
-    width: 60%;
+    width: 60vw;
     gap: 1rem;
   }
 
@@ -305,21 +298,19 @@ body {
 
   #gameContainer {
     padding: 1.5rem 1.5rem;
-    width: 50%;
-    height: 68%;
+    width: 50vw;
   }
 
   .btnContainer {
     margin-top: 1rem;
     padding: 0.2rem;
-    width: 100%;
+    width: 100vw;
     gap: 1rem;
   }
 
   .btnContainer > .choiceBtn {
     font-size: 2.5rem;
-    height: 45%;
-    width: 24%;
+    width: 24vw;
   }
   .btnContainer > .restartBtn {
     font-size: 2rem;
@@ -328,10 +319,10 @@ body {
 
 @media (min-width: 2100px) {
   #gameContainer {
-    width: 40%;
+    width: 40vw;
   }
 
   .btnContainer {
-    width: 90%;
+    width: 90vw;
   }
 }

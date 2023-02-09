@@ -1,4 +1,3 @@
-// alert('Welcome to Rock, Paper and Scissors game! Press OK to START!');
 const selection = ['Rock', 'Paper', 'Scissors'];
 let playerScore = 0;
 let computerScore = 0;
